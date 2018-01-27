@@ -1,11 +1,63 @@
 var ctxLastMonth = $("#lastMonthChart").get(0).getContext("2d");
 var ctxChart = $("#b3-chart").get(0).getContext("2d");
+var ctxChart2 = $("#b3-chart2").get(0).getContext("2d");
 
-var dataLastMonth = {
-	labels : ["锈病","虫害","冻害","干旱"],
+
+var disasterCount;
+
+
+$.ajax({
+      url: '/countDisaster',
+      type: 'GET',
+      dataType: 'json',
+}).done(function(docs){
+      disasterCount = docs;
+      console.log(disasterCount);
+      var dataLastMonth = {
+            labels : ["锈病","虫害","冻害","干旱"],
+            datasets : [
+                  {
+                  label: "发生次数",
+                  fill: false,
+                  lineTension: 0.1,
+                  backgroundColor: "#33ccff",
+                  borderColor: "#3333ff",
+                  borderCapStyle: 'butt',
+                  borderDash: [],
+                  borderDashOffset: 0.0,
+                  borderJoinStyle: 'miter',
+                  pointBorderColor: "#33ccff",
+                  pointBackgroundColor: "#fff",
+                  pointBorderWidth: 1,
+                  pointHoverRadius: 5,
+                  pointHoverBackgroundColor: "#33ccff",
+                  pointHoverBorderColor: "#3333ff",
+                  pointHoverBorderWidth: 2,
+                  pointRadius: 5,
+                  pointHitRadius: 10,
+                  data: [disasterCount, 0, 0, 0],
+                  spanGaps: false,
+                  },
+                  
+            ]
+      };
+
+      new Chart(ctxLastMonth, {
+          type:'bar',
+          data: dataLastMonth,
+      });
+      
+});
+
+
+
+
+
+var dataChart = {
+	labels : ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
 	datasets : [
 		{
-			label: "发生次数",
+		label: "预警次数",
             fill: false,
             lineTension: 0.1,
             backgroundColor: "#33ccff",
@@ -23,53 +75,55 @@ var dataLastMonth = {
             pointHoverBorderWidth: 2,
             pointRadius: 5,
             pointHitRadius: 10,
-            data: [7, 0, 2, 1],
-            spanGaps: false,
-		},
-		
-	]
-};
-
-
-var dataChartDay = {
-	labels : ["周一","周二","周三","周四","周五","周六","周日"],
-	datasets : [
-		{
-			label: "发生概率",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "#33ccff",
-            borderColor: "#3333ff",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "#33ccff",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "#33ccff",
-            pointHoverBorderColor: "#3333ff",
-            pointHoverBorderWidth: 2,
-            pointRadius: 5,
-            pointHitRadius: 10,
-            data: [66, 67, 64, 61, 60, 62, 61],
+            data: [3, 4, 6, 14, 9, 3, 4,5,15,10,6,2],
             spanGaps: false,
 		},
 		
 	]
 }
 
+var dataChart2 = {
+      labels : ["锈病","虫害","干旱","冻害"],
+      datasets : [
+            {
+            label: "预警次数",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "#33ccff",
+            borderColor: "#3333ff",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "#33ccff",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "#33ccff",
+            pointHoverBorderColor: "#3333ff",
+            pointHoverBorderWidth: 2,
+            pointRadius: 5,
+            pointHitRadius: 10,
+            data: [3, 4, 6, 14],
+            spanGaps: false,
+            },
+            
+      ]
+}
 
 
 
-new Chart(ctxLastMonth, {
-    type:'bar',
-    data: dataLastMonth,
-});
+
 
 // chart for chart
 new Chart(ctxChart, {
     type:'bar',
-    data: dataChartDay,
+    data: dataChart,
 });
+
+new Chart(ctxChart2, {
+    type:'bar',
+    data: dataChart2,
+});
+
+

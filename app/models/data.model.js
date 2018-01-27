@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 // 每日一次存数据
 var dataSchema = mongoose.Schema({
+	num: String,
 	date: String,
 	at: String,
 	ah: String,

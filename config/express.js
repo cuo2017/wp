@@ -11,6 +11,7 @@ module.exports = function(){
 
 	require('../app/routes/user.route.js')(app);
 	require('../app/routes/data.route.js')(app);
+	require('../app/routes/msg.route.js')(app);
 
 	// 定时保存环境信息
 

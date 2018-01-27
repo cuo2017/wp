@@ -239,7 +239,9 @@ module.exports = {
 		var url = 'http://www.nmc.cn/publish/forecast/ASC/san-tai.html';
 		var listData  = [];//wd
 		var listData2 = [];//sd
+		var number = req.body.number;
 		var data = {
+			num: String,
 			date: String,
 			at: String,
 			ah: String,
@@ -248,6 +250,7 @@ module.exports = {
 			warning: String,
 			degree: String,
 		};
+		data.num = number;
 		http.get(url, function(response) {
 		    var html = '';
 		    // 获取页面数据
@@ -319,9 +322,35 @@ module.exports = {
 		
 
 	},
+	// 环境数据添加灾害预警
+	saveDataDisaster: function(req,res,next){
+
+		// 1:没有添加、、2：已经添加
+		var content = req.body;
+		Data.update({"num":"1"},{$set:content},function(){
+			console.log("添加灾害预警成功");
+			return res.json(Data);
+		});
+	},
 
 
+	// 统计近一个月的灾害次数
+	countDisaster:function(req,res,next){
 
+		var result = {
+			"rust":String,
+			"drought":String,
+			"bugs":String,
+			"frost":String,
+		};
+		var count = 0;
+		Data.find({"warning":"锈病"}).exec(function(err,docs){
+			
+			var arr = docs;
+			
+			return res.json(arr.length);
+		});
+	},
 
 
 

@@ -49,7 +49,7 @@ $(function(){
 // menu click style
 
 	// topic
-	var menu_topic_state = [0,0,0,0];
+	var menu_topic_state = [0,0,0,0,0];
 	$(".menu-topic").click(function(event) {
 		/* Act on the event */
 		
@@ -62,7 +62,7 @@ $(function(){
 					
 					
 					if(menu_topic_state[0] === 0){
-						menu_topic_state = [1,0,0,0];
+						menu_topic_state = [1,0,0,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -95,14 +95,16 @@ $(function(){
 						$('#m6').animate({
 							"top":"-120px",
 						}, 200);
+						$('#M4').animate({
+							"top":"-120px",
+						}, 200);
 						$('#m7').animate({
 							"top":"-160px",
 						}, 200);
 						$('#m8').animate({
 							"top":"-200px",
 						}, 200);
-
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-200px",
 						}, 200);
 						$('#m9').animate({
@@ -114,13 +116,15 @@ $(function(){
 						$('#m11').animate({
 							"top":"-320px",
 						}, 200);
+
+						
 						
 						
 					
 					}
 
 					else{
-						menu_topic_state = [0,0,0,0];
+						menu_topic_state = [0,0,0,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -150,13 +154,16 @@ $(function(){
 						$('#m6').animate({
 							"top":"-240px",
 						}, 200);
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
 						$('#m7').animate({
 							"top":"-280px",
 						}, 200);
 						$('#m8').animate({
 							"top":"-320px",
 						}, 200);
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-320px",
 						}, 200);
 						$('#m9').animate({
@@ -177,7 +184,7 @@ $(function(){
 
 					// alert($(this).attr('id'));
 					if(menu_topic_state[1] === 0){
-						menu_topic_state = [0,1,0,0];
+						menu_topic_state = [0,1,0,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -210,14 +217,16 @@ $(function(){
 						$('#m6').animate({
 							"top":"-200px",
 						}, 200);
+						$('#M4').animate({
+							"top":"-200px",
+						}, 200);
 						$('#m7').animate({
 							"top":"-240px",
 						}, 200);
 						$('#m8').animate({
 							"top":"-280px",
 						}, 200);
-
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-280px",
 						}, 200);
 						$('#m9').animate({
@@ -235,7 +244,7 @@ $(function(){
 					}
 
 					else{
-						menu_topic_state = [0,0,0,0];
+						menu_topic_state = [0,0,0,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -265,13 +274,16 @@ $(function(){
 						$('#m6').animate({
 							"top":"-240px",
 						}, 200);
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
 						$('#m7').animate({
 							"top":"-280px",
 						}, 200);
 						$('#m8').animate({
 							"top":"-320px",
 						}, 200);
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-320px",
 						}, 200);
 						$('#m9').animate({
@@ -288,7 +300,7 @@ $(function(){
 				case "M3":
 					// alert($(this).attr('id'));
 					if(menu_topic_state[2] === 0){
-						menu_topic_state = [0,0,1,0];
+						menu_topic_state = [0,0,1,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -321,30 +333,33 @@ $(function(){
 						$('#m6').animate({
 							"top":"-160px",
 						}, 200);
-						$('#m7').animate({
-							"top":"-160px",
-						}, 200);
-						$('#m8').animate({
-							"top":"-160px",
-						}, 200);
-
 						$('#M4').animate({
 							"top":"-160px",
 						}, 200);
-						$('#m9').animate({
+						$('#m7').animate({
 							"top":"-200px",
 						}, 200);
-						$('#m10').animate({
+						$('#m8').animate({
 							"top":"-240px",
 						}, 200);
-						$('#m11').animate({
+
+						$('#M5').animate({
+							"top":"-240px",
+						}, 200);
+						$('#m9').animate({
 							"top":"-280px",
+						}, 200);
+						$('#m10').animate({
+							"top":"-320px",
+						}, 200);
+						$('#m11').animate({
+							"top":"-360px",
 						}, 200);
 					}
 
 
 					else{
-						menu_topic_state = [0,0,0,0];
+						menu_topic_state = [0,0,0,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -374,13 +389,16 @@ $(function(){
 						$('#m6').animate({
 							"top":"-240px",
 						}, 200);
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
 						$('#m7').animate({
 							"top":"-280px",
 						}, 200);
 						$('#m8').animate({
 							"top":"-320px",
 						}, 200);
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-320px",
 						}, 200);
 						$('#m9').animate({
@@ -397,7 +415,7 @@ $(function(){
 				case "M4":
 					// alert($(this).attr('id'));
 					if(menu_topic_state[3] === 0){
-						menu_topic_state = [0,0,0,1];
+						menu_topic_state = [0,0,0,1,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -427,6 +445,127 @@ $(function(){
 						$('#m6').animate({
 							"top":"-240px",
 						}, 200);
+
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
+
+						$('#m7').animate({
+							"top":"-240px",
+						}, 200);
+						$('#m8').animate({
+							"top":"-240px",
+						}, 200);
+
+						$('#M5').animate({
+							"top":"-240px",
+						}, 200);
+						$('#m9').animate({
+							"top":"-280px",
+						}, 200);
+						$('#m10').animate({
+							"top":"-320px",
+						}, 200);
+						$('#m11').animate({
+							"top":"-360px",
+						}, 200);
+						
+						
+					
+					}
+
+					else{
+						menu_topic_state = [0,0,0,0,0];
+						$(".menu-topic").children('span').css({
+							"transform":"rotate(0deg)",
+						});
+						$('#m1').animate({
+							"top":"-40px",
+						}, 200);
+						$('#m2').animate({
+							"top":"-80px",
+						}, 200);
+						$('#m3').animate({
+							"top":"-120px",
+						}, 200);
+
+						$('#M2').animate({
+							"top":"-120px",
+						}, 200);
+						$('#m4').animate({
+							"top":"-160px",
+						}, 200);
+
+						$('#M3').animate({
+							"top":"-160px",
+						}, 200);
+						$('#m5').animate({
+							"top":"-200px",
+						}, 200);
+						$('#m6').animate({
+							"top":"-240px",
+						}, 200);
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
+						$('#m7').animate({
+							"top":"-280px",
+						}, 200);
+						$('#m8').animate({
+							"top":"-320px",
+						}, 200);
+						$('#M5').animate({
+							"top":"-320px",
+						}, 200);
+						$('#m9').animate({
+							"top":"-360px",
+						}, 200);
+						$('#m10').animate({
+							"top":"-400px",
+						}, 200);
+						$('#m11').animate({
+							"top":"-440px",
+						}, 200);
+					}
+					break;
+				case "M5":
+					// alert($(this).attr('id'));
+					if(menu_topic_state[4] === 0){
+						menu_topic_state = [0,0,0,0,1];
+						$(".menu-topic").children('span').css({
+							"transform":"rotate(0deg)",
+						});
+						$('#m1').animate({
+							"top":"-40px",
+						}, 200);
+						$('#m2').animate({
+							"top":"-80px",
+						}, 200);
+						$('#m3').animate({
+							"top":"-120px",
+						}, 200);
+
+						$('#M2').animate({
+							"top":"-120px",
+						}, 200);
+						$('#m4').animate({
+							"top":"-160px",
+						}, 200);
+
+						$('#M3').animate({
+							"top":"-160px",
+						}, 200);
+						$('#m5').animate({
+							"top":"-200px",
+						}, 200);
+						$('#m6').animate({
+							"top":"-240px",
+						}, 200);
+
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
+
 						$('#m7').animate({
 							"top":"-280px",
 						}, 200);
@@ -434,7 +573,7 @@ $(function(){
 							"top":"-320px",
 						}, 200);
 
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-320px",
 						}, 200);
 						$('#m9').animate({
@@ -452,7 +591,7 @@ $(function(){
 					}
 
 					else{
-						menu_topic_state = [0,0,0,0];
+						menu_topic_state = [0,0,0,0,0];
 						$(".menu-topic").children('span').css({
 							"transform":"rotate(0deg)",
 						});
@@ -482,13 +621,16 @@ $(function(){
 						$('#m6').animate({
 							"top":"-240px",
 						}, 200);
+						$('#M4').animate({
+							"top":"-240px",
+						}, 200);
 						$('#m7').animate({
 							"top":"-280px",
 						}, 200);
 						$('#m8').animate({
 							"top":"-320px",
 						}, 200);
-						$('#M4').animate({
+						$('#M5').animate({
 							"top":"-320px",
 						}, 200);
 						$('#m9').animate({

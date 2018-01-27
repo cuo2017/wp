@@ -31,6 +31,12 @@ module.exports =function(app){
 
 	// 存储环境数据
 	app.route('/saveData')
-	.get(dataController.saveData);
+	.post(dataController.saveData);
+
+	app.route('/saveDataDisaster')
+	.post(dataController.saveDataDisaster);
+
+	app.route('/countDisaster')
+	.get(dataController.countDisaster);
 
 };

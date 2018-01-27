@@ -12,6 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="static/css/global.css">
 	<link rel="stylesheet" type="text/css" href="static/css/board.css">
 
+	<!-- Include Quill stylesheet -->
+	<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+
 
 	<!-- 字体：有字库 --><!-- 
 	<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js?"></script> -->
@@ -207,13 +210,14 @@
 				<li id="m4" class="forM2 menu-sub"><span class="sub-glyphicon glyphicon glyphicon-header"><a>健康分析</a></li>
 				<!-- <li id="m6" class="menu-sub"><span class="sub-glyphicon glyphicon glyphicon-list-alt"><a>健康分析说明</a></li> -->
 
-				<li id="M3" class="menu-topic"><span class="glyphicon glyphicon-triangle-right"></span><a>数据整理与统计</a></li> 
+				<li id="M3" class="menu-topic"><span class="glyphicon glyphicon-triangle-right"></span><a>资讯信息服务</a></li> 
 				<li id="m5" class="forM3 menu-sub"><span class="sub-glyphicon glyphicon glyphicon-cloud-download"><a>藤椒资讯推送</a></li>
 				<li id="m6" class="forM3 menu-sub"><span class="sub-glyphicon glyphicon glyphicon-cloud-upload"><a>信息反馈</a></li>
+				<li id="M4" class="menu-topic"><span class="glyphicon glyphicon-triangle-right"></span><a>数据整理服务</a></li>
 				<li id="m7" class="forM3 menu-sub"><span class="sub-glyphicon glyphicon glyphicon-object-align-bottom"><a>图表分析</a></li>
 				<li id="m8" class="forM3 menu-sub"><span class="sub-glyphicon glyphicon glyphicon-stats"><a>信息统计</a></li>
 
-				<li id="M4" class="menu-topic"><span class="glyphicon glyphicon-triangle-right"></span><a>用户管理工具</a></li> 
+				<li id="M5" class="menu-topic"><span class="glyphicon glyphicon-triangle-right"></span><a>用户管理工具</a></li> 
 				<li id="m9" class="forM4 menu-sub"><span class=" sub-glyphicon glyphicon glyphicon-wrench"></span><a>开发权限用户管理</a></li>
 				<li id="m10" class="forM4 menu-sub"><span class="forM4 sub-glyphicon glyphicon glyphicon-cog"></span><a>管理权限用户管理</a></li>
 				<li id="m11" class="forM4 menu-sub"><span class="forM4 sub-glyphicon glyphicon glyphicon-circle-arrow-up"></span><a>系统反馈</a></li>
@@ -253,7 +257,7 @@
 					<img src="lib/images/disaster/rust.png">
 					<h1>{{warningType}}</h1>
 					<p>一种由真菌中的锈菌寄生引起的一类植物病害,分布广且危害性大。常发生于立春或是秋冬之际...</p>
-					<a href="">查看更多</a>
+					<a href="https://baike.baidu.com/item/%E9%94%88%E7%97%85/235619?fr=aladdin">查看更多</a>
 
 				</div>
 			</div>
@@ -354,27 +358,49 @@
 				</div>
 
 				<div class="b1-basic-box box-content">
-					<img src="lib/images/weaLogo.png">
+					<!-- <img src="lib/images/weaLogo.png"> -->
 					<h1>基本信息</h1>
-					<p>地理位置 {{wLocation}}</p>
-					<p>预报时间 {{wTime}}</p>
-					<p>天气预报 {{wWeather}}</p>
+					<div class="b1-basic-box-content">
+						<p>地理位置 <br><span>{{wLocation}}</span></p>
+					</div>
+					<div class="b1-basic-box-content">
+						<p>预报时间 <br><span>{{wTime}}</span></p>
+					</div>
+					<div class="b1-basic-box-content">
+						<p>天气预报 <br><span>{{wWeather}}</span></p>
+					</div>
 				</div>
 
 				<div class="b1-basic-box box-content">
 					<h1>详细信息</h1>
-					<p>最{{wTemp2}}</p>
-					<p>最{{wTemp1}}</p>
-					<p>湿度 {{wShidu}}</p>
-					<p>天气提示 {{wNotice}}</p>
+					<div class="b1-basic-box-content">
+						<p>最高温 <br><span>{{wTemp2}}</span></p>
+					</div>
+					<div class="b1-basic-box-content">
+						<p>最低温 <br><span>{{wTemp1}}</span></p>
+					</div>
+					<div class="b1-basic-box-content">	
+						<p>湿度 <br><span>{{wShidu}}</span></p>
+					</div>
+					<div class="b1-basic-box-content-long b1-basic-box-content">	
+						<p>天气提示 <br><span>{{wNotice}}</span></p>
+					</div>
 				</div>
 
 				<div class="b1-basic-box box-content">
 					<h1>其他信息</h1>
-					<p>日出时间 上午{{wSunrise}} </p>
-					<p>日落时间 下午{{wSunset}}</p>
-					<p>风向 {{wFx}}</p>
-					<p>风力 {{wFl}}</p>
+					<div class="b1-basic-box-content">	
+						<p>日出时间 <br><span>上午{{wSunrise}}</span> </p>
+					</div>
+					<div class="b1-basic-box-content">	
+						<p>日落时间 <br><span>下午{{wSunset}}</span></p>
+					</div>
+					<div class="b1-basic-box-content">	
+						<p>风向 <br><span>{{wFx}}</span></p>
+					</div>
+					<div class="b1-basic-box-content">	
+						<p>风力 <br><span>{{wFl}}</span></p>
+					</div>
 				</div>
 
 			</div>
@@ -385,7 +411,7 @@
 					<h1>未来天气预报</h1>
 				</div>
 				<div class="b1-future-box box-content">
-					<canvas></canvas>
+					<canvas id="b1-future"></canvas>
 				</div>
 			</div>
 
@@ -396,11 +422,22 @@
 				</div>
 
 				<div class="b1-quality-box box-content">
-					<p>PM2.5指数 {{wPm25}} </p>
-					<p>PM10指数 {{wPm10}}</p>
-					<p>空气质量 {{wQuality}}</p>
-					<p>空气质量指数(AQI) {{wAqi}}</p>
-					<p>出行建议 {{wGanmao}}</p>
+					<div class="b1-quality-box-content">	
+						<p>PM2.5指数 <br><span>{{wPm25}}</span></p>
+					</div>
+					<div class="b1-quality-box-content">	
+						<p>PM10指数 <br><span>{{wPm10}}</span></p>
+					</div>
+					<div class="b1-quality-box-content">	
+						<p>空气质量 <br><span>{{wQuality}}</span></p>
+					</div>
+					<div class="b1-quality-box-content">	
+						<p>空气质量指数<br><span>{{wAqi}}</span></p>
+						<!-- AQI -->
+					</div>
+					<div class="b1-quality-box-content-long b1-quality-box-content">	
+						<p>出行建议 <br><span>{{wGanmao}}</span></p>
+					</div>
 				</div>
 			</div>
 
@@ -409,16 +446,51 @@
 		<!-- 健康分析 -->
 
 		<div class="board" id="board2">
-			<div class="b2-health box">
+			<div class="b2-upload box">
 
 				<div class="box-menu">
-					<h1>健康分析系统</h1>
+					<h1>图片上传</h1>
 				</div>	
 
-				<div class="b2-health-box box-content">
-					<p>尚在开发中...</p>
+				<div class="b2-upload-box box-content">
+					<div class="b2-upload-box-img">
+						<button class="btn btn-warning">选择图片
+							<input type="file" onchange="loadFiles(this.files[0])">
+						</button>
+						<span>未选择图片</span>
+					</div>
+					<div class="b2-upload-box-img-show">
+						<img src="">
+					</div>
+					<div class="b2-upload-box-submit">
+						<button class="btn btn-success">上传图片</button>
+					</div>
 				</div>
 
+			</div>
+
+			<div class="b2-result box">
+				<div class="box-menu">
+					<h1>健康分析系统结果</h1>
+				</div>	
+				<div class="b2-result-box box-content">
+					<div class="b2-result-box-content">
+						<p>灾害种类<br><span>锈病</span></p>
+					</div>
+					<div class="b2-result-box-content">
+						<p>灾害程度<br><span>严重</span></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="b2-explain box">
+				<div class="box-menu">
+					<h1>健康分析系统介绍</h1>
+				</div>
+				<div class="b2-explain-box box-content">
+					<p>健康分析功能是本系统的核心功能之一，在用户上传藤椒树叶的照片后，能够识别该树叶所在藤椒树是否健康，并在遭遇病虫害灾害的情况下识别出藤椒遭遇灾害种类，以及遭遇灾害的程度等相关情况。<br>除此之外，该功能也会绑定藤椒资讯功能，在识别到相应灾害的同时，附上链接到相应解决措施的跳转方式，能够让用户在查询到灾害的同时快速寻找到解决方式。</p>
+					<img src="lib/images/health.png">
+				</div>
 			</div>
 		</div>
 
@@ -429,39 +501,94 @@
 		<div class="board" id="board3">
 
 			<div class="b3-chart box">
-
 				<div class="box-menu">
-					<h1>图表数据分析</h1>
+					<h1>各项灾害数据分析</h1>
 				</div>
-
 				<div class="b3-chart-menu">
 					<div class="b3-chart-menu-type">
 						<h1>选择灾害类型：</h1>
-						<ul>
-							<li><p>锈病</p></li>
-							<li><p>虫害</p></li>
-							<li><p>冻害</p></li>
-							<li><p>干旱</p></li>
-						</ul>
+						<div class="dropdown">
+						  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    灾害类型
+						    	<span class="caret"></span>
+						  	</button>
+						  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    	<li><a href="#">锈病</a></li>
+						    	<li><a href="#">虫害</a></li>
+						    	<li><a href="#">干旱</a></li>
+						    	<li><a href="#">冻害</a></li>
+						  	</ul>
+						</div>
 					</div>	
 					<div class="b3-chart-menu-type">
-						<h1>选择时间段：</h1>
-						<ul>
-							<li><p>日</p></li>
-							<li><p>周</p></li>
-							<li><p>月</p></li>
-							<li><p>年</p></li>
-						</ul>
+						<h1>选择年份：</h1>
+						<div class="dropdown">
+						  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    灾害年份
+						    	<span class="caret"></span>
+						  	</button>
+						  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						    	<li><a href="#">2017</a></li>
+						    	<li><a href="#">2018</a></li>
+						  	</ul>
+						</div>
 					</div>
 				</div>
-
-
 				<div class="b3-chart-box box-content">
 					<canvas id="b3-chart"></canvas>
 				</div>
-
-
 			</div>
+
+			<div class="b3-chart2 box">
+				<div class="box-menu">
+					<h1>灾害总体数据分析</h1>
+				</div>
+				<div class="b3-chart-menu">
+					<div class="b3-chart-menu-type">
+						<h1>选择年份：</h1>
+						<div class="dropdown">
+						  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    灾害年份
+						    	<span class="caret"></span>
+						  	</button>
+						  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    	<li><a href="#">2017</a></li>
+						    	<li><a href="#">2018</a></li>
+						  	</ul>
+						</div>
+					</div>	
+					<div class="b3-chart-menu-type">
+						<h1>选择月份：</h1>
+						<div class="dropdown">
+						  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    灾害月份
+						    	<span class="caret"></span>
+						  	</button>
+						  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						    	<li><a href="#">1</a></li>
+						    	<li><a href="#">2</a></li>
+						    	<li><a href="#">3</a></li>
+						    	<li><a href="#">4</a></li>
+						    	<li><a href="#">5</a></li>
+						    	<li><a href="#">6</a></li>
+						    	<li><a href="#">7</a></li>
+						    	<li><a href="#">8</a></li>
+						    	<li><a href="#">9</a></li>
+						    	<li><a href="#">10</a></li>
+						    	<li><a href="#">11</a></li>
+						    	<li><a href="#">12</a></li>
+						  	</ul>
+						</div>
+					</div>
+				</div>
+				<div class="b3-chart-box box-content">
+					<canvas id="b3-chart2"></canvas>
+				</div>
+			</div>
+
+
+
+
 
 		</div>
 
@@ -734,16 +861,49 @@
 
 		<div class="board" id="board9">
 			<div class="b9-msgSend box">
+				<div class="box-menu">
+					<h1>藤椒资讯推送</h1>
+				</div>	
+				<div class="b9-msgSend-box box-content">
+					<div class="b9-msgSend-box-content">
+						<label for="b9-title">资讯题目：</label>
+						<input name="b9-title" class="form-control input-group-sm" placeholder="填写藤椒资讯标题">
+					</div>
+					<div class="b9-msgSend-box-content">
+						<label for="b9-editor">资讯编辑：</label>
+						<div name="b9-editor" id="editor"></div>
+					</div>
+					<div class="b9-msgSend-box-content">
+						<label for="b9-type">资讯种类：</label>
+						<button class="btn btn-default">藤椒百科</button>
+						<button class="btn btn-default">锈病解决</button>
+						<button class="btn btn-default">虫害解决</button>
+						<button class="btn btn-default">干旱解决</button>
+						<button class="btn btn-default">冻害解决</button>
+					</div>
+					<div class="b9-msgSend-box-content">
+						<input class="btn btn-danger" id="b9-msgSend-cancel" type="button" value="重置">
+						<input class="btn btn-success" id="b9-msgSend-submit" type="button" value="发布">
+					</div>
+				</div>
+			</div>
 
+			<div class="b9-msgSendManage box">
 				<div class="box-menu">
 					<h1>藤椒资讯推送管理</h1>
 				</div>	
-
-				<div class="b9-msgSend-box box-content">
-					<p>尚在开发中...</p>
+				<div class="b9-msgSendManage-box box-content">
+					<!-- <p>尚在开发中...</p> -->
+					<div class="list-group">
+						<a class="list-group-item" data-toggle="modal" data-target="#msgModal">
+							<h4 class="list-group-item-heading"><span class="list-num">1</span>+title+'</h4>
+							<span class="label label-default">藤椒百科</span>
+						</a>
+					</div>
 				</div>
-
 			</div>
+
+
 		</div>
 
 <!-- 信息反馈 -->
@@ -1017,6 +1177,41 @@
 		  	</div>
 		</div>
 
+
+
+
+		<div class="modal fade" id="msgModal" tabindex="-1" role="dialog">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        		<h4 class="modal-title msgTitle"></h4>
+		      		</div>
+			      	<div class="modal-body msgBody">
+			        	<div class="msgType">
+			        		<p>资讯种类：
+			        			<span class="label label-default"></span>
+		        			</p>
+			        	</div>
+			        	<div class="msgMsg">
+			        	</div>
+			     	</div>
+			     	<div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			        	<button type="button" class="btn btn-warning">编辑</button>
+			      	</div>
+		    	</div>
+		  	</div>
+		</div>
+
+
+
+
+
+
+
+
+
 	</div>
 
 
@@ -1042,15 +1237,21 @@
 	<script type="text/javascript" src="src/global.js"></script>
 	<script type="text/javascript" src="src/app.js"></script>
 	<script type="text/javascript" src="src/chart.js"></script>
-	
-
+	<script type="text/javascript" src="src/health.js"></script>
+	<!-- Include the Quill library -->
+	<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+	<!-- Initialize Quill editor -->
+	<script src= "src/editor.js"></script>
+	<script type="text/javascript" src="src/msg.js"></script>
 	
 
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=UpcDquBoNqAqkzNZPtAKxMwnVih4LtDm"></script>
 	<script type="text/javascript">
+		// initialize
 		var map = new BMap.Map("container");
 	</script>
 	<script type="text/javascript" src="src/map.js"></script>
+
 
 
 	
