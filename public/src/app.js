@@ -657,6 +657,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 			// console.log(data.data);
 			var user = data.data[0];
 			$(".menu ul li").css('display', 'block');
+			// $("body").css('overflow', 'auto');
 			// switch(user.auth){
 			// 	case "开发权限":
 			// 		$(".menu ul li").css('display', 'block');

@@ -19,7 +19,7 @@ $light-grey:#efefef;
 		padding:0;
 		margin:0;
 
-
+		overflow: hidden;
 		background: #efefef;
 		/*米白色背景*/
 

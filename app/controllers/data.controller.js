@@ -225,7 +225,7 @@ module.exports = {
 
 		// ###子进程直接curl获取
 		var exec = require('child_process').exec;
-		var cmdStr = 'curl http://www.sojson.com/open/api/weather/json.shtml?city=三台';
+		var cmdStr = 'curl -L http://www.sojson.com/open/api/weather/json.shtml?city=三台';
 		exec(cmdStr,function(err,stdout,stderr){
            	return res.json(stdout);
 

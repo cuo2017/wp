@@ -75,7 +75,7 @@ var dataChart = {
             pointHoverBorderWidth: 2,
             pointRadius: 5,
             pointHitRadius: 10,
-            data: [3, 4, 6, 14, 9, 3, 4,5,15,10,6,2],
+            data: [1, 2, 0, 0, 0, 0, 0,0,0,0,0,0],
             spanGaps: false,
 		},
 		
@@ -104,7 +104,7 @@ var dataChart2 = {
             pointHoverBorderWidth: 2,
             pointRadius: 5,
             pointHitRadius: 10,
-            data: [3, 4, 6, 14],
+            data: [3, 0, 0, 0],
             spanGaps: false,
             },
             

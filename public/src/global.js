@@ -699,59 +699,72 @@ $(function(){
 
 
 	// connections to .board
+	// 初始化
 	$('#m1').click(function(event) {
 		/* Act on the event */
+		$("body").css('overflow', 'auto');
 		$('.board').hide();
 		$('#board0').show();
 	});
 	$('#m2').click(function(event) {
 		/* Act on the event */
+		$("body").css('overflow', 'auto');
 		$('.board').hide();
 		$('#board1').show();
 	});
 	$('#m3').click(function(event) {
 		/* Act on the event */
+		$("body").css('overflow', 'auto');
 		$('.board').hide();
 		$('#board8').show();
 	});
 	$('#m4').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board2').show();
 	});
 	$('#m5').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board9').show();
 	});
 	$('#m6').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board10').show();
 	});
 	$('#m7').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
 		$('#board3').show();
+		$("body").css('overflow', 'hidden');
+
 	});
 	$('#m8').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board4').show();
 	});
 	$('#m9').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board5').show();
 	});
 	$('#m10').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board6').show();
 	});
 	$('#m11').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();
+		$("body").css('overflow', 'auto');
 		$('#board11').show();
 	});
 	
