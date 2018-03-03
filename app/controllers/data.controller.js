@@ -45,12 +45,13 @@ module.exports = {
 	getDataBySys1: function(req,res,next){
 		var exec = require('child_process').exec;
 		var cmdStr = "python ./data/sys2/similar_new.py";
+		// var cmdStr = "python ./data/sys2/xiangsi.py";
 		// 获取sys2里面的灾害预报
 		exec(cmdStr,function(err,stdout,stderr){
 			if(err){
 				console.log('get weather api error:'+stderr);
 			}else{
-				console.log(stdout);
+				console.log("得到输出" + stdout);
 				var result = stdout;
 				var report = {
 					type: String,

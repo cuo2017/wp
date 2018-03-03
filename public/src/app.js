@@ -1255,5 +1255,12 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 	});
 
 
+
+
+	$("#b2-upload").click(function(event) {
+		/* Act on the event */
+		$(".b2-upload-box-img input").val("");
+	});
+
 }]);
 

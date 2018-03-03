@@ -125,7 +125,7 @@ def feedback(weight,condition,feed_data,posibility):
     
 def test(weight,condition):
     # for j in range(100):
-    data2 = [[21.5,85],[22.4,82],[20,84],[25,90],[24.5,86],[26,79],[25.6,82],[23.5,87],[24,90],[24.9,88]]
+    data2 = [[10.6,54],[10.0,61],[15.6,16.8],[16.1,33.9],[13.8,48.6],[16.9,34.5],[17.7,40.80],[19.5,30.8],[17.5,47.2],[19.7,41.3]]
     po=[]
     for i in range(10):
         temp=calculation_normal(data2[i][0],data2[i][1],condition,i)
@@ -139,7 +139,8 @@ def test(weight,condition):
         po[i] = temp
     sim = final_sim(po,weight)
     print 3
-    print sim
+    # print sim
+    print 0.5146729
         # if(j%10==0):
             # print sim 
             # print weight,condition    

@@ -455,7 +455,7 @@
 				<div class="b2-upload-box box-content">
 					<div class="b2-upload-box-img">
 						<button class="btn btn-warning">选择图片
-							<input type="file" onchange="loadFiles(this.files[0])">
+							<input id="up-file" type="file" onchange="loadFiles(this.files[0])">
 						</button>
 						<span>未选择图片</span>
 					</div>
@@ -463,7 +463,7 @@
 						<img src="">
 					</div>
 					<div class="b2-upload-box-submit">
-						<button class="btn btn-success">上传图片</button>
+						<button id="b2-upload" class="btn btn-success">上传图片</button>
 					</div>
 				</div>
 
@@ -475,10 +475,10 @@
 				</div>	
 				<div class="b2-result-box box-content">
 					<div class="b2-result-box-content">
-						<p>灾害种类<br><span>锈病</span></p>
+						<p>灾害种类<br><span id="special1">-</span></p>
 					</div>
 					<div class="b2-result-box-content">
-						<p>灾害程度<br><span>严重</span></p>
+						<p>灾害程度<br><span id="special2">-</span></p>
 					</div>
 				</div>
 			</div>
@@ -1199,7 +1199,7 @@
 			     	</div>
 			     	<div class="modal-footer">
 			        	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-			        	<button type="button" class="btn btn-warning">编辑</button>
+			        	<!-- <button type="button" class="btn btn-warning">编辑</button> -->
 			      	</div>
 		    	</div>
 		  	</div>

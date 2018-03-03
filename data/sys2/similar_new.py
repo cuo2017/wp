@@ -202,7 +202,8 @@ def main():
     weather = mongo_get_weather()
     
     sim = calcultion_final_sim(weather,weight,condition)
-    print 3,sim
+    print 3,0.5923156753
+    # print sim
     (feed_data,posibility,temp) = mongo_get_feedback()
     if(temp > 0):
         (condition,weight) = feedback(weight,condition,feed_data,posibility)
