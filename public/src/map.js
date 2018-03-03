@@ -43,7 +43,7 @@ marker.addEventListener("click",function(){
 		height: 100,
 		title: "徐老师"
 	}
-	var content = "伍佰村，智慧藤椒系统使用基地";
+	var content = "姓名：徐老师，所在位置：四川省绵阳市三台县伍佰村智慧藤椒系统使用基地，手机号：13908233345";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,center);
 });
@@ -64,9 +64,9 @@ marker3.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试一"
+		title: "用户一"
 	}
-	var content = "测试一的所在位置";
+	var content = "姓名：用户一，藤椒数量：3亩，所在位置：四川省绵阳市三台县，手机号：11111111111";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test1);
 });
@@ -75,9 +75,9 @@ marker4.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试二"
+		title: "用户二"
 	}
-	var content = "测试二的所在位置";
+	var content = "姓名：用户二，藤椒数量：4亩，所在位置：四川省绵阳市三台县，手机号：12222222222";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test2);
 });
@@ -86,9 +86,9 @@ marker5.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试三"
+		title: "用户三"
 	}
-	var content = "测试三的所在位置";
+	var content = "姓名：用户三，藤椒数量：2亩，所在位置：四川省绵阳市三台县，手机号：13333333333";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test3);
 });
@@ -97,9 +97,9 @@ marker6.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试四"
+		title: "用户四"
 	}
-	var content = "测试四的所在位置";
+	var content = "姓名：用户四，藤椒数量：3亩，所在位置：四川省绵阳市三台县，手机号：14444444444";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test4);
 });
@@ -108,9 +108,9 @@ marker7.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试五"
+		title: "用户五"
 	}
-	var content = "测试五的所在位置";
+	var content = "姓名：用户五，藤椒数量：4亩，所在位置：四川省绵阳市三台县，手机号：15555555555";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test5);
 });
@@ -119,9 +119,9 @@ marker8.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试六"
+		title: "用户六"
 	}
-	var content = "测试六的所在位置";
+	var content = "姓名：用户六，藤椒数量：3亩，所在位置：四川省绵阳市三台县，手机号：16666666666";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test6);
 });
@@ -130,9 +130,9 @@ marker9.addEventListener("click",function(){
 	var opts = {
 		width: 250,
 		height: 100,
-		title: "测试七"
+		title: "用户七"
 	}
-	var content = "测试七的所在位置";
+	var content = "姓名：用户七，藤椒数量：6亩，所在位置：四川省绵阳市三台县，手机号：17777777777";
 	var infoWindow = new BMap.InfoWindow(content,opts);
 	map.openInfoWindow(infoWindow,test7);
 });

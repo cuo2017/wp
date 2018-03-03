@@ -697,6 +697,8 @@ $(function(){
 		});
 	});
 
+	
+
 
 	// connections to .board
 	// 初始化
@@ -730,12 +732,12 @@ $(function(){
 		$("body").css('overflow', 'auto');
 		$('#board9').show();
 	});
-	$('#m6').click(function(event) {
-		/* Act on the event */
-		$('.board').hide();
-		$("body").css('overflow', 'auto');
-		$('#board10').show();
-	});
+	// $('#m6').click(function(event) {
+	// 	/* Act on the event */
+	// 	$('.board').hide();
+	// 	$("body").css('overflow', 'auto');
+	// 	$('#board10').show();
+	// });
 	$('#m7').click(function(event) {
 		/* Act on the event */
 		$('.board').hide();

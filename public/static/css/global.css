@@ -26,6 +26,11 @@ $light-grey:#efefef;
 
 	}
 
+
+
+	#m6{
+		opacity: 0;
+	}
 	/*nav-bar*/
 	.nav {
 	  position: fixed;

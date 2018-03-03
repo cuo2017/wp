@@ -362,6 +362,9 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 		        field: 'auth',
 		        title: '权限'
 		    },{
+		        field: 'location',
+		        title: '行政区域'
+		    },{
 		    	field: 'pepperNumber',
 		    	title: '藤椒数量'
 		    }],
@@ -406,7 +409,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 		        title: '权限'
 		    },{
 		        field: 'location',
-		        title: '地理位置'
+		        title: '行政区域'
 		    },{
 		    	field: 'pepperNumber',
 		    	title: '藤椒数量'
@@ -1257,10 +1260,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 
 
 
-	$("#b2-upload").click(function(event) {
-		/* Act on the event */
-		$(".b2-upload-box-img input").val("");
-	});
+
 
 }]);
 

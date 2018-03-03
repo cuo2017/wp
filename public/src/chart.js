@@ -35,7 +35,7 @@ $.ajax({
                   pointHoverBorderWidth: 2,
                   pointRadius: 5,
                   pointHitRadius: 10,
-                  data: [disasterCount, 0, 0, 0],
+                  data: [2, 0, 0, 0],
                   spanGaps: false,
                   },
                   
@@ -75,7 +75,7 @@ var dataChart = {
             pointHoverBorderWidth: 2,
             pointRadius: 5,
             pointHitRadius: 10,
-            data: [0, 0, 1, 0, 0, 0, 0,0,0,0,0,0],
+            data: [0, 1, 1, 0, 0, 0, 0,0,0,0,0,0],
             spanGaps: false,
 		},
 		
@@ -104,7 +104,7 @@ var dataChart2 = {
             pointHoverBorderWidth: 2,
             pointRadius: 5,
             pointHitRadius: 10,
-            data: [1, 0, 0, 0],
+            data: [2, 0, 0, 0],
             spanGaps: false,
             },
             
