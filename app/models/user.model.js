@@ -13,4 +13,9 @@ var userSchema = mongoose.Schema({
 	date: String,
 });
 
+
+
+
+
 var user = mongoose.model("user",userSchema);
+

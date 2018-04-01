@@ -371,7 +371,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 		});
 
 		$("#table-all").bootstrapTable({
-			url: '/getUser',
+			url: '/getWpUsers',
 			toolbar: '#toolbar-all',
 			striped: true, //行间隔色
 			cache: false,// 不用缓存
@@ -397,13 +397,10 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 				title:"编号",
 			},{
 		        field: 'name',
-		        title: '姓名'
+		        title: '用户名'
 		    },{
 		        field: 'phone',
 		        title: '手机号'
-		    },{
-		        field: 'password',
-		        title: '密码'
 		    },{
 		        field: 'auth',
 		        title: '权限'
@@ -411,8 +408,23 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 		        field: 'location',
 		        title: '行政区域'
 		    },{
+		        field: 'lng',
+		        title: '经度'
+		    },{
+		        field: 'lat',
+		        title: '纬度'
+		    },{
 		    	field: 'pepperNumber',
-		    	title: '藤椒数量'
+		    	title: '藤椒株数'
+		    },{
+		    	field: 'pepperAcer',
+		    	title: '藤椒亩数'
+		    },{
+		    	field: 'co_op',
+		    	title: '合作社'
+		    },{
+		    	field: 'area',
+		    	title: '分片区'
 		    }],
 		});
 
@@ -988,27 +1000,42 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 		$http.get('/getUser').then(function(data){
 			var length = data.data.length;	
 			console.log(length);
-			var content = {
-				number: length + 1,
-				name:$('#add-name-all').val(),
-				phone:$('#add-phone-all').val(),
-				password:$('#add-password-all').val(),
-				auth:$('#add-auth-all').val(),
-				location:$('#add-location-all').val(),
-				pepperNumber:$('#add-pepperNumber-all').val(),
-			};
+			
 			// alert(content.password);
 			// console.log(content);
 			$scope.addUser(content);
 			// alert("添加用户成功");
 		});
-		$('#addModal-all').modal('hide');
-		window.location.reload();
+		// $('#addModal-all').modal('hide');
+		// window.location.reload();
 		// alert($('#add-auth').val());
 		// $scope.getTable();
 		// $("#table-all").bootstrapTable("refresh",{
 		// 	url:"/getUser"
 		// });
+
+
+		var content = {
+			number: $('#add-number-all').val(),
+			name:$('#add-name-all').val(),
+			phone:$('#add-phone-all').val(),
+			password:$('#add-password-all').val(),
+			auth:$('#add-auth-all').val(),
+			location:$('#add-location-all').val(),
+			lng:$('#add-lng-all').val(),
+			lat:$('#add-lat-all').val(),
+			pepperNumber:$('#add-pepperNumber-all').val(),
+			pepperAcer:$('#add-pepperAcer-all').val(),
+			co_op:$('#add-coop-all').val(),
+			area:$('#add-pepperArea-all').val(),
+			date: new Date(),
+		};
+
+		$http.post('/addWpUsers',content);
+
+		$('#addModal-all').modal('hide');
+
+
 	});
 
 

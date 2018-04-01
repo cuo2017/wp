@@ -18,4 +18,27 @@ module.exports =function(app){
 
 	app.route('/findUser')
 	.post(userController.findUser);
+
+
+
+
+	// ====== new users ============
+
+	app.route('/getWpUsers')
+	.get(userController.getWpUsers);
+
+	app.route('/addWpUsers')
+	.post(userController.addWpUsers);
+
+	app.route('/deleteWpUsers')
+	.post(userController.deleteWpUsers);
+
+	app.route('/updateWpUsers')
+	.post(userController.updateWpUsers);
+
+	app.route('/deleteAllWpUsers')
+	.get(userController.deleteAllWpUsers);
+
+	app.route('/findWpUsers')
+	.post(userController.findWpUsers);
 };

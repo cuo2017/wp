@@ -999,38 +999,65 @@
 		    	<div class="modal-content">
 		      		<div class="modal-header">
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        		<h4 class="modal-title" id="exampleModalLabel">添加用户</h4>
+		        		<h4 class="modal-title" id="exampleModalLabel">添加用户(new)</h4>
 		      		</div>
 			      	<div class="modal-body">
 			        	<form>
+			        		<div class="form-group">
+			            		<label for="add-number-all" class="control-label">编号:</label>
+			            		<input type="text" class="form-control" id="add-number-all">
+			          		</div>
 			          		<div class="form-group">
-			            		<label for="add-name-all" class="control-label">姓名:</label>
+			            		<label for="add-name-all" class="control-label">用户名:</label>
 			            		<input type="text" class="form-control" id="add-name-all">
 			          		</div>
 			          		<div class="form-group">
 			            		<label for="add-phone-all" class="control-label">手机号:</label>
-			            		<input type="text" class="form-control" id="add-phone-all">
+			            		<input type="text" class="form-control" id="add-phone-all" value="13300000">
 			          		</div>
 			          		<div class="form-group">
 			            		<label for="add-password-all" class="control-label">密码:</label>
-			            		<input type="password" class="form-control" id="add-password-all">
+			            		<input type="password" class="form-control" id="add-password-all" value="666666">
 			          		</div>
 			          		<div class="form-group select">
 			            		<label for="add-auth-all" class="control-label">权限:</label>
-			            		<select id="add-auth-all" class="form-control">
+			            		<select id="add-auth-all" class="form-control" defaultValue="普通用户">
+			            			<option value="普通用户">普通用户</option>
 			            			<option value="开发权限">开发权限</option>
 			            			<option value="管理权限">管理权限</option>
 			            			<option value="运营权限">运营权限</option>
-			            			<option value="普通用户">普通用户</option>
 			            		</select>
 			          		</div>
 			          		<div class="form-group">
-			            		<label for="add-location-all" class="control-label">地理位置:</label>
+			            		<label for="add-location-all" class="control-label">行政区域:</label>
 			            		<input type="text" class="form-control" id="add-location-all">
 			          		</div>
 			          		<div class="form-group">
-			            		<label for="add-pepperNumber-all" class="control-label">藤椒数量:</label>
+			            		<label for="add-lng-all" class="control-label">经度:</label>
+			            		<input type="text" class="form-control" id="add-lng-all">
+			          		</div>
+			          		<div class="form-group">
+			            		<label for="add-lat-all" class="control-label">纬度:</label>
+			            		<input type="text" class="form-control" id="add-lat-all">
+			          		</div>
+			          		<div class="form-group">
+			            		<label for="add-pepperNumber-all" class="control-label">藤椒株数:</label>
 			            		<input type="text" class="form-control" id="add-pepperNumber-all">
+			          		</div>
+
+			          		<div class="form-group">
+			            		<label for="add-pepperAcer-all" class="control-label">藤椒亩数:</label>
+			            		<input type="text" class="form-control" id="add-pepperAcer-all">
+			          		</div>
+
+			          		<div class="form-group">
+			            		<label for="add-coop-all" class="control-label">合作社:</label>
+			            		<input type="text" class="form-control" id="add-coop-all">
+			          		</div>
+
+			          		<div class="form-group">
+			            		<label for="add-pepperArea-all" class="control-label">分片区:</label>
+			            		<input type="text" class="form-control" id="add-pepperArea-all">
 			          		</div>
 			          		
 			        	</form>

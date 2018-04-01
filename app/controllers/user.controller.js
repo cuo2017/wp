@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 
 var User = mongoose.model('user');
 
+var WpUsers = mongoose.model('wpusers');
+
 module.exports = {
 	getUser:function(req,res,next){
 		User.find().exec(function(err, docs){
@@ -54,6 +56,60 @@ module.exports = {
 	},
 	
 
+
+
+	// ==== new user =======
+	getWpUsers:function(req,res,next){
+		WpUsers.find().exec(function(err, docs){
+			return res.json(docs);
+		});
+	},
+
+	// curl -l -H "Content-type: application/json" -X POST -d '{"phone":"13521389587","password":"test"}' localhost:8080/addWpUsers
+	addWpUsers:function(req, res, next){
+		var wpusers = new WpUsers(req.body);
+		wpusers.save(function(err, docs){
+			console.log('添加用户成功');
+			return res.json(docs);
+		});
+	},
+	deleteWpUsers:function(req,res,next){
+		var num = req.body;
+		WpUsers.remove(num,function(err,docs){
+			console.log('删除编号为'+ num.number + '的用户');
+			return res.json(docs);
+		});
+	},
+	deleteAllWpUsers:function(req,res,next){
+		WpUsers.remove(function(err,docs){
+			console.log('已删除所有用户');
+			return res.json(docs);
+		});
+	},
+	updateWpUsers:function(req,res,next){
+		// $inc $set $unset
+		// req.body={
+		// 	num:Number,
+		// 	//修改内容
+			// body:{
+			// 	XXX
+			// }
+
+		// }
+		var number = req.body.number;
+		var body = req.body.body;
+		// 分开更新
+		WpUsers.update({"number":number},{$set:body},function(){
+			console.log("更新文字成功");
+			return res.json(User);
+		});
+	},
+	findWpUsers:function(req,res,next){
+		var content = req.body;
+		WpUsers.find(content).exec(function(err,docs){
+			return res.json(docs);
+		});
+	},
 
 
 }
