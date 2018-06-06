@@ -143,7 +143,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 
 
            	var ctxFuture = $("#b1-future").get(0).getContext("2d");
-           	$("#b1-future").css('width', '300');
+           	$("#b1-future").css('width', '130%');
            	dataFuture = {
 		      	labels : ["今天","明天","后天","三天后","四天后"],
 		      	datasets : [
@@ -470,7 +470,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 		    	title: '灾害预警'
 		    },{
 		    	field: 'degree',
-		    	title: '灾害程度'
+		    	title: '爆发概率'
 		    }],
 		});
 

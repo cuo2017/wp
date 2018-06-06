@@ -10,7 +10,7 @@ var test6 = new BMap.Point(104.868,31.338);//test1
 var test7 = new BMap.Point(104.861,31.331);//test1
 
 
-map.centerAndZoom(center,11);	//初始化地图，设置中心点坐标和地图级别 
+map.centerAndZoom(center,15);	//初始化地图，设置中心点坐标和地图级别 
 map.enableScrollWheelZoom(true); //滚轮滑动
 
 map.addControl(new BMap.NavigationControl());    
