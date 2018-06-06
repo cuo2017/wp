@@ -742,7 +742,7 @@ $(function(){
 		/* Act on the event */
 		$('.board').hide();
 		$('#board3').show();
-		$("body").css('overflow', 'hidden');
+		$("body").css('overflow', 'auto');
 
 	});
 	$('#m8').click(function(event) {

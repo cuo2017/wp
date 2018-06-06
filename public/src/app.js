@@ -143,7 +143,7 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 
 
            	var ctxFuture = $("#b1-future").get(0).getContext("2d");
-           	$("#b1-future").css('width', '500');
+           	$("#b1-future").css('width', '300');
            	dataFuture = {
 		      	labels : ["今天","明天","后天","三天后","四天后"],
 		      	datasets : [
