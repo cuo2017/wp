@@ -5,7 +5,7 @@ var cheerio = require('cheerio');
 var request = require('request');
 var moment = require('moment');
 
-var User = mongoose.model('user');
+// var User = mongoose.model('user');
 
 var Data = mongoose.model('data');
 
@@ -20,7 +20,7 @@ module.exports = {
 	},
 	addData:function(req,res,next){
 		var data = new Data(req.body);
-		Data.save(function(err,docs){
+		data.save(function(err,docs){
 			console.log('添加天气数据成功');
 			return res.json(docs);
 		});

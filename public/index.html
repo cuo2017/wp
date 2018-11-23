@@ -374,32 +374,32 @@
 				<div class="b1-basic-box box-content">
 					<h1>详细信息</h1>
 					<div class="b1-basic-box-content">
-						<p>最高温 <br><span>{{wTemp2}}</span></p>
+						<p>体感温度<br><span>{{wTemp2}}</span></p>
 					</div>
 					<div class="b1-basic-box-content">
-						<p>最低温 <br><span>{{wTemp1}}</span></p>
+						<p>平均温度 <br><span>{{wTemp1}}</span></p>
 					</div>
 					<div class="b1-basic-box-content">	
-						<p>湿度 <br><span>{{wShidu}}</span></p>
+						<p>湿度 <br><span>{{wShidu + "%"}}</span></p>
 					</div>
-					<div class="b1-basic-box-content-long b1-basic-box-content">	
+					<!-- <div class="b1-basic-box-content-long b1-basic-box-content">	
 						<p>天气提示 <br><span>{{wNotice}}</span></p>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="b1-basic-box box-content">
 					<h1>其他信息</h1>
 					<div class="b1-basic-box-content">	
-						<p>日出时间 <br><span>上午{{wSunrise}}</span> </p>
+						<p>紫外线强度 <br><span>{{wSunrise}}</span> </p>
 					</div>
 					<div class="b1-basic-box-content">	
-						<p>日落时间 <br><span>下午{{wSunset}}</span></p>
+						<p>气压 <br><span>{{wSunset}}</span></p>
 					</div>
 					<div class="b1-basic-box-content">	
 						<p>风向 <br><span>{{wFx}}</span></p>
 					</div>
 					<div class="b1-basic-box-content">	
-						<p>风力 <br><span>{{wFl}}</span></p>
+						<p>风速 <br><span>{{wFl}}</span></p>
 					</div>
 				</div>
 
@@ -408,7 +408,7 @@
 
 			<div class="b1-future box">
 				<div class="box-menu">
-					<h1>未来天气预报</h1>
+					<h1>24小时天气预报</h1>
 				</div>
 				<div class="b1-future-box box-content" style="width:100%">
 					<canvas  id="b1-future"></canvas>
@@ -416,7 +416,7 @@
 			</div>
 
 
-			<div class="b1-quality box">
+			<!-- <div class="b1-quality box">
 				<div class="box-menu">
 					<h1>空气指数</h1>
 				</div>
@@ -433,13 +433,12 @@
 					</div>
 					<div class="b1-quality-box-content">	
 						<p>空气质量指数<br><span>{{wAqi}}</span></p>
-						<!-- AQI -->
 					</div>
 					<div class="b1-quality-box-content-long b1-quality-box-content">	
 						<p>出行建议 <br><span>{{wGanmao}}</span></p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 

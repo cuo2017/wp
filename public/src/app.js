@@ -1,3 +1,4 @@
+
 var USER_LENGTH = 0;
 var DELETE_LIST = [];
 var dataFuture;
@@ -22,191 +23,286 @@ wp.controller('wpController',['$scope','$http','$cookies','$cookieStore',functio
 	// // -weather--report-
 	$scope.wea = function(){
 		
+	   		// curl -i -X POST 'http://aliv8.data.moji.com/whapi/json/aliweather/shortforecast'  -H 'Authorization:APPCODE 9a4b7288c78c4da9a68d72e8a916b762' --data 'lat=31.333467&lon=104.862946&token=bbc0fdc738a3877f3f72f69b1a4d30fe'
 
-	
+		
 
-	   var url = '/getWeaByWeb';
-	   $http.get(url).then(function(data){
+	   var url = 'http://aliv8.data.moji.com/whapi/json/aliweather/forecast24hours';
+	   var code = {
+
+	   }
+	   $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+            	"lat":"31.333467",
+            	"lon":"104.862946",
+            	"token":"1b89050d9f64191d494c806f78e8ea36"
+            },
+            beforeSend: function(request) {
+                request.setRequestHeader("Authorization", "APPCODE 9a4b7288c78c4da9a68d72e8a916b762");
+            },
+            success: function(result) {
+                var wea = JSON.parse(result);
+                var weaData = wea.data;
+                console.log(weaData);
+                var content = {
+                	cityName: weaData.city.name,
+                	sd: weaData.hourly[8].humidity,
+                	weather:weaData.hourly[8].condition,
+                	temp: weaData.hourly[8].temp,
+                	date:weaData.hourly[8].date,
+                	realFeel:weaData.hourly[8].realFeel,
+                	windDir:weaData.hourly[8].windDir,
+                	windSpeed:weaData.hourly[8].windSpeed,
+                	uvi:weaData.hourly[8].uvi,
+                	pressure: weaData.hourly[8].pressure,
+                }
+                $scope.wLocation = content.cityName;
+	           	$scope.wTime = content.date;
+	           	$scope.wWeather = content.weather;
+	           	$scope.wTemp1 = content.temp;
+	           	$scope.wTemp2 = content.realFeel;
+	           	$scope.wShidu = content.sd;
+	           	$scope.wSunrise = content.uvi;
+	           	$scope.wSunset = content.pressure;
+	           	$scope.wFx = content.windDir;
+	           	$scope.wFl = content.windSpeed;
+
+
+	           	tempD = [];
+	           	for(var i=0;i<24;i++){
+	           		tempD.push(weaData.hourly[i].temp);
+	           	}
+                console.log(tempD);
+
+
+
+	           	var ctxFuture = $("#b1-future").get(0).getContext("2d");
+	           	dataFuture = {
+			      	labels : ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+			      	datasets : [
+			            {
+			            label: "温度",
+			            fill: false,
+			            lineTension: 0.1,
+			            backgroundColor: "#33ccff",
+			            borderColor: "#3333ff",
+			            borderCapStyle: 'butt',
+			            borderDash: [],
+			            borderDashOffset: 0.0,
+			            borderJoinStyle: 'miter',
+			            pointBorderColor: "#33ccff",
+			            pointBackgroundColor: "#fff",
+			            pointBorderWidth: 1,
+			            pointHoverRadius: 5,
+			            pointHoverBackgroundColor: "#33ccff",
+			            pointHoverBorderColor: "#3333ff",
+			            pointHoverBorderWidth: 2,
+			            pointRadius: 5,
+			            pointHitRadius: 10,
+			            data: tempD,
+			            spanGaps: false,
+			            },
+
+			            
+			      	]
+				};
+				new Chart(ctxFuture, {
+				    type:'line',
+				    data: dataFuture,
+				});
+	           	
+                 
+            }
+        });
+	  //  $http.get(url).then(function(data){
 
 	   		
 
 
-	   		var wea =  JSON.parse(data.data);
-
-	   		// console.log(wea);
 
 
-	   		// data resolving
-           	var cityName = JSON.stringify(wea.city);//远程json数据放在query.results下 
-           	cityName = cityName.replace(/\"/g,"");//正则去掉双引号
-
-           	var shidu = JSON.stringify(wea.data.shidu);//远程json数据放在query.results下 
-           	shidu = shidu.replace(/\"/g,"");//正则去掉双引号
-
-           	var weather = JSON.stringify(wea.data.forecast[0].type);
-           	weather = weather.replace(/\"/g,"");//正则去掉双引号
-			// // moment.locale('zh-cn');
-         	// date = moment(date).format('LLLL');
-
-           	var temp1 = JSON.stringify(wea.data.forecast[0].low);
-           	temp1 = temp1.replace(/\"/g,"");//正则去掉双引号
-           	var temp2 = JSON.stringify(wea.data.forecast[0].high);
-           	temp2 = temp2.replace(/\"/g,"");//正则去掉双引号
-           	var ptime = JSON.stringify(wea.data.forecast[0].date);
-           	ptime = ptime.replace(/\"/g,"");//正则去掉双引号
-
-           	var notice = JSON.stringify(wea.data.forecast[0].notice);
-           	notice = notice.replace(/\"/g,"");
-
-           	var sunrise = JSON.stringify(wea.data.forecast[0].sunrise);
-           	sunrise = sunrise.replace(/\"/g,"");
-
-           	var sunset = JSON.stringify(wea.data.forecast[0].sunset);
-           	sunset = sunset.replace(/\"/g,"");
-
-           	var fx = JSON.stringify(wea.data.forecast[0].fx);
-           	fx = fx.replace(/\"/g,"");
-       		var fl = JSON.stringify(wea.data.forecast[0].fl);
-           	fl = fl.replace(/\"/g,"");
-
-           	var pm25 = JSON.stringify(wea.data.pm25);
-           	var pm10 = JSON.stringify(wea.data.pm10);
-           	var sunset = JSON.stringify(wea.data.forecast[0].sunset);
-           	sunset = sunset.replace(/\"/g,"");
-           	var quality = JSON.stringify(wea.data.quality);
-
-           	var ganmao = JSON.stringify(wea.data.ganmao);
-           	ganmao = ganmao.replace(/\"/g,"");
-           	var aqi = JSON.stringify(wea.data.forecast[0].aqi);
-           	aqi = aqi.replace(/\"/g,"");
 
 
-           	var wt1 = parseInt(JSON.stringify(wea.data.forecast[0].high).replace(/[^0-9.]/ig,""));
-           	var wt2 = parseInt(JSON.stringify(wea.data.forecast[1].high).replace(/[^0-9.]/ig,""));
-           	var wt3 = parseInt(JSON.stringify(wea.data.forecast[2].high).replace(/[^0-9.]/ig,""));
-           	var wt4 = parseInt(JSON.stringify(wea.data.forecast[3].high).replace(/[^0-9.]/ig,""));
-           	var wt5 = parseInt(JSON.stringify(wea.data.forecast[4].high).replace(/[^0-9.]/ig,""));
 
 
-           	var mt1 = parseInt(JSON.stringify(wea.data.forecast[0].low).replace(/[^0-9.]/ig,""));
-           	var mt2 = parseInt(JSON.stringify(wea.data.forecast[1].low).replace(/[^0-9.]/ig,""));
-           	var mt3 = parseInt(JSON.stringify(wea.data.forecast[2].low).replace(/[^0-9.]/ig,""));
-           	var mt4 = parseInt(JSON.stringify(wea.data.forecast[3].low).replace(/[^0-9.]/ig,""));
-           	var mt5 = parseInt(JSON.stringify(wea.data.forecast[4].low).replace(/[^0-9.]/ig,""));
+	  //  		var wea =  JSON.parse(data.data);
+
+	  //  		// console.log(wea);
 
 
-           	$scope.wLocation = cityName;
-           	$scope.wTime = ptime;
-           	$scope.wWeather = weather;
-           	$scope.wTemp1 = temp1;
-           	$scope.wTemp2 = temp2;
-           	$scope.wShidu = shidu;
-           	$scope.wNotice = notice;
-           	$scope.wSunrise = sunrise;
-           	$scope.wSunset = sunset;
-           	$scope.wFx = fx;
-           	$scope.wFl = fl;
-           	$scope.wPm25 = pm25;
-           	$scope.wPm10 = pm10;
-           	$scope.wQuality = quality;
-           	$scope.wGanmao = ganmao;
-           	$scope.wAqi = aqi;
+	  //  		// data resolving
+   //         	var cityName = JSON.stringify(wea.city);//远程json数据放在query.results下 
+   //         	cityName = cityName.replace(/\"/g,"");//正则去掉双引号
 
-           	// $('#location').text(cityName);
-           	$('#temp1').text(temp1);
-           	$('#temp2').text(temp2);
-           	$('#ptime').text(ptime);
-           	$('#weather').text(weather);
-           	$('#notice').text(notice);
-           	$('#fx').text(fx);
-           	$('#pm25').text(pm25);
-           	$('#quality').text(quality);
-           	$('#ganmao').text(ganmao);
+   //         	var shidu = JSON.stringify(wea.data.shidu);//远程json数据放在query.results下 
+   //         	shidu = shidu.replace(/\"/g,"");//正则去掉双引号
+
+   //         	var weather = JSON.stringify(wea.data.forecast[0].type);
+   //         	weather = weather.replace(/\"/g,"");//正则去掉双引号
+			// // // moment.locale('zh-cn');
+   //       	// date = moment(date).format('LLLL');
+
+   //         	var temp1 = JSON.stringify(wea.data.forecast[0].low);
+   //         	temp1 = temp1.replace(/\"/g,"");//正则去掉双引号
+   //         	var temp2 = JSON.stringify(wea.data.forecast[0].high);
+   //         	temp2 = temp2.replace(/\"/g,"");//正则去掉双引号
+   //         	var ptime = JSON.stringify(wea.data.forecast[0].date);
+   //         	ptime = ptime.replace(/\"/g,"");//正则去掉双引号
+
+   //         	var notice = JSON.stringify(wea.data.forecast[0].notice);
+   //         	notice = notice.replace(/\"/g,"");
+
+   //         	var sunrise = JSON.stringify(wea.data.forecast[0].sunrise);
+   //         	sunrise = sunrise.replace(/\"/g,"");
+
+   //         	var sunset = JSON.stringify(wea.data.forecast[0].sunset);
+   //         	sunset = sunset.replace(/\"/g,"");
+
+   //         	var fx = JSON.stringify(wea.data.forecast[0].fx);
+   //         	fx = fx.replace(/\"/g,"");
+   //     		var fl = JSON.stringify(wea.data.forecast[0].fl);
+   //         	fl = fl.replace(/\"/g,"");
+
+   //         	var pm25 = JSON.stringify(wea.data.pm25);
+   //         	var pm10 = JSON.stringify(wea.data.pm10);
+   //         	var sunset = JSON.stringify(wea.data.forecast[0].sunset);
+   //         	sunset = sunset.replace(/\"/g,"");
+   //         	var quality = JSON.stringify(wea.data.quality);
+
+   //         	var ganmao = JSON.stringify(wea.data.ganmao);
+   //         	ganmao = ganmao.replace(/\"/g,"");
+   //         	var aqi = JSON.stringify(wea.data.forecast[0].aqi);
+   //         	aqi = aqi.replace(/\"/g,"");
+
+
+   //         	var wt1 = parseInt(JSON.stringify(wea.data.forecast[0].high).replace(/[^0-9.]/ig,""));
+   //         	var wt2 = parseInt(JSON.stringify(wea.data.forecast[1].high).replace(/[^0-9.]/ig,""));
+   //         	var wt3 = parseInt(JSON.stringify(wea.data.forecast[2].high).replace(/[^0-9.]/ig,""));
+   //         	var wt4 = parseInt(JSON.stringify(wea.data.forecast[3].high).replace(/[^0-9.]/ig,""));
+   //         	var wt5 = parseInt(JSON.stringify(wea.data.forecast[4].high).replace(/[^0-9.]/ig,""));
+
+
+   //         	var mt1 = parseInt(JSON.stringify(wea.data.forecast[0].low).replace(/[^0-9.]/ig,""));
+   //         	var mt2 = parseInt(JSON.stringify(wea.data.forecast[1].low).replace(/[^0-9.]/ig,""));
+   //         	var mt3 = parseInt(JSON.stringify(wea.data.forecast[2].low).replace(/[^0-9.]/ig,""));
+   //         	var mt4 = parseInt(JSON.stringify(wea.data.forecast[3].low).replace(/[^0-9.]/ig,""));
+   //         	var mt5 = parseInt(JSON.stringify(wea.data.forecast[4].low).replace(/[^0-9.]/ig,""));
+
+
+   //         	$scope.wLocation = cityName;
+   //         	$scope.wTime = ptime;
+   //         	$scope.wWeather = weather;
+   //         	$scope.wTemp1 = temp1;
+   //         	$scope.wTemp2 = temp2;
+   //         	$scope.wShidu = shidu;
+   //         	$scope.wNotice = notice;
+   //         	$scope.wSunrise = sunrise;
+   //         	$scope.wSunset = sunset;
+   //         	$scope.wFx = fx;
+   //         	$scope.wFl = fl;
+   //         	$scope.wPm25 = pm25;
+   //         	$scope.wPm10 = pm10;
+   //         	$scope.wQuality = quality;
+   //         	$scope.wGanmao = ganmao;
+   //         	$scope.wAqi = aqi;
+
+   //         	// $('#location').text(cityName);
+   //         	$('#temp1').text(temp1);
+   //         	$('#temp2').text(temp2);
+   //         	$('#ptime').text(ptime);
+   //         	$('#weather').text(weather);
+   //         	$('#notice').text(notice);
+   //         	$('#fx').text(fx);
+   //         	$('#pm25').text(pm25);
+   //         	$('#quality').text(quality);
+   //         	$('#ganmao').text(ganmao);
 
            	
-           	// lib/images/wea/snowy.png
-           	if(weather == "多云" || weather == "阴"){
-           		$('.wea1 img').attr('src','lib/images/wea/cloudy.jpg');
-           	}
-           	else if(weather == "大雾"){
-           		$('.wea1 img').attr('src','lib/images/wea/foggy.jpg');
-           	}
-           	else if(weather == "小雨"){
-           		$('.wea1 img').attr('src','lib/images/wea/rainy.jpg');
-           	}
-           	else if(weather == "小雪"){
-           		$('.wea1 img').attr('src','lib/images/wea/snowy.jpg');
-           	}
-           	else if(weather == "晴"){
-           		$('.wea1 img').attr('src','lib/images/wea/sunning.jpg');
-           	}
+   //         	// lib/images/wea/snowy.png
+   //         	if(weather == "多云" || weather == "阴"){
+   //         		$('.wea1 img').attr('src','lib/images/wea/cloudy.jpg');
+   //         	}
+   //         	else if(weather == "大雾"){
+   //         		$('.wea1 img').attr('src','lib/images/wea/foggy.jpg');
+   //         	}
+   //         	else if(weather == "小雨"){
+   //         		$('.wea1 img').attr('src','lib/images/wea/rainy.jpg');
+   //         	}
+   //         	else if(weather == "小雪"){
+   //         		$('.wea1 img').attr('src','lib/images/wea/snowy.jpg');
+   //         	}
+   //         	else if(weather == "晴"){
+   //         		$('.wea1 img').attr('src','lib/images/wea/sunning.jpg');
+   //         	}
 
 
-           	var ctxFuture = $("#b1-future").get(0).getContext("2d");
-           	dataFuture = {
-		      	labels : ["今天","明天","后天","三天后","四天后"],
-		      	datasets : [
-		            {
-		            label: "最高温",
-		            fill: false,
-		            lineTension: 0.1,
-		            backgroundColor: "#33ccff",
-		            borderColor: "#3333ff",
-		            borderCapStyle: 'butt',
-		            borderDash: [],
-		            borderDashOffset: 0.0,
-		            borderJoinStyle: 'miter',
-		            pointBorderColor: "#33ccff",
-		            pointBackgroundColor: "#fff",
-		            pointBorderWidth: 1,
-		            pointHoverRadius: 5,
-		            pointHoverBackgroundColor: "#33ccff",
-		            pointHoverBorderColor: "#3333ff",
-		            pointHoverBorderWidth: 2,
-		            pointRadius: 5,
-		            pointHitRadius: 10,
-		            data: [wt1, wt2, wt3, wt4, wt5],
-		            spanGaps: false,
-		            },
+   //         	var ctxFuture = $("#b1-future").get(0).getContext("2d");
+   //         	dataFuture = {
+		 //      	labels : ["今天","明天","后天","三天后","四天后"],
+		 //      	datasets : [
+		 //            {
+		 //            label: "最高温",
+		 //            fill: false,
+		 //            lineTension: 0.1,
+		 //            backgroundColor: "#33ccff",
+		 //            borderColor: "#3333ff",
+		 //            borderCapStyle: 'butt',
+		 //            borderDash: [],
+		 //            borderDashOffset: 0.0,
+		 //            borderJoinStyle: 'miter',
+		 //            pointBorderColor: "#33ccff",
+		 //            pointBackgroundColor: "#fff",
+		 //            pointBorderWidth: 1,
+		 //            pointHoverRadius: 5,
+		 //            pointHoverBackgroundColor: "#33ccff",
+		 //            pointHoverBorderColor: "#3333ff",
+		 //            pointHoverBorderWidth: 2,
+		 //            pointRadius: 5,
+		 //            pointHitRadius: 10,
+		 //            data: [wt1, wt2, wt3, wt4, wt5],
+		 //            spanGaps: false,
+		 //            },
 
-		            {
-		            label: "最低温",
-		            fill: false,
-		            lineTension: 0.1,
-		            backgroundColor: "#f96",
-		            borderColor: "#f96",
-		            borderCapStyle: 'butt',
-		            borderDash: [],
-		            borderDashOffset: 0.0,
-		            borderJoinStyle: 'miter',
-		            pointBorderColor: "#f96",
-		            pointBackgroundColor: "#fff",
-		            pointBorderWidth: 1,
-		            pointHoverRadius: 5,
-		            pointHoverBackgroundColor: "#f96",
-		            pointHoverBorderColor: "#f96",
-		            pointHoverBorderWidth: 2,
-		            pointRadius: 5,
-		            pointHitRadius: 10,
-		            data: [mt1, mt2, mt3, mt4, mt5],
-		            spanGaps: false,
-		            },
+		 //            {
+		 //            label: "最低温",
+		 //            fill: false,
+		 //            lineTension: 0.1,
+		 //            backgroundColor: "#f96",
+		 //            borderColor: "#f96",
+		 //            borderCapStyle: 'butt',
+		 //            borderDash: [],
+		 //            borderDashOffset: 0.0,
+		 //            borderJoinStyle: 'miter',
+		 //            pointBorderColor: "#f96",
+		 //            pointBackgroundColor: "#fff",
+		 //            pointBorderWidth: 1,
+		 //            pointHoverRadius: 5,
+		 //            pointHoverBackgroundColor: "#f96",
+		 //            pointHoverBorderColor: "#f96",
+		 //            pointHoverBorderWidth: 2,
+		 //            pointRadius: 5,
+		 //            pointHitRadius: 10,
+		 //            data: [mt1, mt2, mt3, mt4, mt5],
+		 //            spanGaps: false,
+		 //            },
 		            
-		      	]
-			};
+		 //      	]
+			// };
 
-			// chart for future
-			new Chart(ctxFuture, {
-			    type:'line',
-			    data: dataFuture,
-			});
-
-
+			// // chart for future
+			// new Chart(ctxFuture, {
+			//     type:'line',
+			//     data: dataFuture,
+			// });
 
 
 
 
-	   }); 
+
+
+	  //  }); 
 	};
 
 	$scope.wea();
